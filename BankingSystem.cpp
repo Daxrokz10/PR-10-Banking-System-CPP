@@ -12,21 +12,21 @@ class BankAccount {
         string accountType; // To store the type of account
 
     public:
-        int getAccountNum() const {
+        int getAccountNum() {
             return account_num;
         }
         void setAccountNum(int num) {
             account_num = num;
         }
 
-        string getAccountHolder() const {
+        string getAccountHolder() {
             return account_holder;
         }
-        void setAccountHolder(const string& holder) {
+        void setAccountHolder(string holder) {
             account_holder = holder;
         }
 
-        double getBalance() const {
+        double getBalance(){
             return balance;
         }
         void setBalance(double bal) {
@@ -258,17 +258,11 @@ int main() {
                 cout << "\nEnter account number to calculate interest: ";
                 cin >> accountNumber;
 
-                bool accountFound = false;
                 for (BankAccount* account : accounts) {
                     if (account->getAccountNum() == accountNumber) {
                         account->calculate_interest();
-                        accountFound = true;
                         break;
                     }
-                }
-
-                if (!accountFound) {
-                    cout << "Account number not found.\n";
                 }
                 break;
             }
